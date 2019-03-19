@@ -1,10 +1,25 @@
 import React from "react"
+import { graphql } from "gatsby"
 import Layout from "../components/layout"
 
-export default () => {
+export default ({ data }) => {
+  console.log(data)
+  const page = data.contentfulPage
   return (
     <Layout>
-      <div>Hello blog post</div>
+      <div>
+        <h1>{page.name}</h1>
+      </div>
     </Layout>
   )
 }
+
+export const query = graphql`
+  query($url: String!) {
+    contentfulPage(url: {eq: $url}) {
+      id
+      url
+      name
+    }
+  }
+`
