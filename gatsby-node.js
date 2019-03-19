@@ -7,18 +7,6 @@
 // You can delete this file if you're not using it
 const path = require(`path`)
 
-exports.onCreateNode = ({ node, actions }) => {
-  const { createNodeField } = actions
-  if (node.internal.type === `ContentfulPage`) {
-    createNodeField({
-      node,
-      name: `url`,
-      value: node.url,
-    })
-  }
-}
-
-
 exports.createPages = ({ graphql, actions }) => {
   const { createPage } = actions
   return graphql(`
