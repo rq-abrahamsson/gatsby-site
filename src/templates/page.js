@@ -3,7 +3,9 @@ import { graphql } from "gatsby"
 import Layout from "../components/layout"
 
 export default ({ data }) => {
-  console.log(data)
+  fetch("/.netlify/functions/hello")
+    .then(response => response.json())
+    .then(console.log)
   const page = data.contentfulPage
   return (
     <Layout>
@@ -16,7 +18,7 @@ export default ({ data }) => {
 
 export const query = graphql`
   query($url: String!) {
-    contentfulPage(url: {eq: $url}) {
+    contentfulPage(url: { eq: $url }) {
       id
       url
       name
