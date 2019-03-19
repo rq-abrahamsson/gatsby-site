@@ -14,7 +14,6 @@ exports.createPages = ({ graphql, actions }) => {
     allContentfulPage {
       edges {
         node {
-          id
           url
         }
       }
