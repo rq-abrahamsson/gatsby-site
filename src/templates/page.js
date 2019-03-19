@@ -3,9 +3,6 @@ import { graphql } from "gatsby"
 import Layout from "../components/layout"
 
 export default ({ data }) => {
-  fetch("/.netlify/functions/hello")
-    .then(response => response.json())
-    .then(console.log)
   const page = data.contentfulPage
   return (
     <Layout>
