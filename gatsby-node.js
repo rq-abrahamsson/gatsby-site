@@ -13,7 +13,7 @@ exports.onCreateNode = ({ node, actions }) => {
     createNodeField({
       node,
       name: `url`,
-      value: url,
+      value: node.url,
     })
   }
 }
